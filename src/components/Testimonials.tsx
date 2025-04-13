@@ -54,9 +54,9 @@ const Testimonials: React.FC = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-r from-primary/10 to-accent/10 container-padding">
+    <section id="testimonials" className="py-24 bg-gradient-to-r from-primary/10 to-accent/10 container-padding">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 className="section-heading">What Our Clients Say</h2>
           <p className="section-subheading">
             Hear from businesses across Rwanda about their experience working with APPSWIFTS.
@@ -64,13 +64,13 @@ const Testimonials: React.FC = () => {
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative">
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary text-white p-3 rounded-full">
-              <Quote size={24} />
+          <div className="bg-white rounded-3xl shadow-xl p-10 md:p-16 relative">
+            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white p-4 rounded-full">
+              <Quote size={28} />
             </div>
             
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
+            <div className="flex flex-col md:flex-row gap-10 items-center">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
                 <img 
                   src={currentTestimonial.imageUrl} 
                   alt={currentTestimonial.name} 
@@ -79,33 +79,33 @@ const Testimonials: React.FC = () => {
               </div>
               
               <div className="flex-1">
-                <p className="text-xl md:text-2xl font-freight italic mb-6">
+                <p className="text-2xl md:text-3xl font-gt italic mb-8 leading-relaxed">
                   "{currentTestimonial.content}"
                 </p>
                 <div className="flex flex-col">
-                  <h4 className="text-xl font-bold">{currentTestimonial.name}</h4>
-                  <p className="text-premium-gray">
+                  <h4 className="text-2xl font-gt">{currentTestimonial.name}</h4>
+                  <p className="text-premium-gray font-actief mt-1">
                     {currentTestimonial.role}, {currentTestimonial.company}
                   </p>
                 </div>
               </div>
             </div>
             
-            <div className="flex justify-center mt-8 gap-4">
+            <div className="flex justify-center mt-12 gap-6">
               <button 
                 onClick={prevTestimonial}
-                className="p-2 rounded-full border border-gray-200 hover:border-primary hover:bg-primary hover:text-white transition-colors duration-300"
+                className="p-3 rounded-full border border-gray-200 hover:border-primary hover:bg-primary hover:text-white transition-colors duration-300"
                 aria-label="Previous testimonial"
               >
-                <ArrowLeft size={20} />
+                <ArrowLeft size={24} />
               </button>
               
               <button 
                 onClick={nextTestimonial}
-                className="p-2 rounded-full border border-gray-200 hover:border-primary hover:bg-primary hover:text-white transition-colors duration-300"
+                className="p-3 rounded-full border border-gray-200 hover:border-primary hover:bg-primary hover:text-white transition-colors duration-300"
                 aria-label="Next testimonial"
               >
-                <ArrowRight size={20} />
+                <ArrowRight size={24} />
               </button>
             </div>
           </div>

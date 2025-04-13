@@ -33,19 +33,19 @@ const Navbar: React.FC = () => {
           : "py-6 bg-transparent"
       )}
     >
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div className="container mx-auto px-8 md:px-16 flex justify-between items-center">
         <a href="/" className="flex items-center">
-          <span className="text-2xl font-monument text-premium-charcoal">
+          <span className="text-3xl font-monument tracking-tight text-premium-charcoal">
             APP<span className="text-primary">SWIFTS</span>
           </span>
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
-          <a href="#services" className="font-gtamerica font-medium hover:text-primary transition-colors">Services</a>
-          <a href="#portfolio" className="font-gtamerica font-medium hover:text-primary transition-colors">Portfolio</a>
-          <a href="#testimonials" className="font-gtamerica font-medium hover:text-primary transition-colors">Testimonials</a>
-          <a href="#blog" className="font-gtamerica font-medium hover:text-primary transition-colors">Blog</a>
+        <div className="hidden md:flex items-center space-x-10">
+          <a href="#services" className="font-actief hover:text-primary transition-colors">Services</a>
+          <a href="#portfolio" className="font-actief hover:text-primary transition-colors">Portfolio</a>
+          <a href="#testimonials" className="font-actief hover:text-primary transition-colors">Testimonials</a>
+          <a href="#blog" className="font-actief hover:text-primary transition-colors">Blog</a>
           <a href="#contact" className="btn-primary">Contact Us</a>
         </div>
 
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
           className="md:hidden text-premium-charcoal focus:outline-none"
           onClick={toggleMenu}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
@@ -65,11 +65,11 @@ const Navbar: React.FC = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <div className="container mx-auto px-6 py-8 flex flex-col space-y-8">
-          <a href="#services" className="text-xl font-gtamerica font-medium hover:text-primary transition-colors" onClick={toggleMenu}>Services</a>
-          <a href="#portfolio" className="text-xl font-gtamerica font-medium hover:text-primary transition-colors" onClick={toggleMenu}>Portfolio</a>
-          <a href="#testimonials" className="text-xl font-gtamerica font-medium hover:text-primary transition-colors" onClick={toggleMenu}>Testimonials</a>
-          <a href="#blog" className="text-xl font-gtamerica font-medium hover:text-primary transition-colors" onClick={toggleMenu}>Blog</a>
+        <div className="container mx-auto px-8 py-12 flex flex-col space-y-8">
+          <a href="#services" className="text-2xl font-gt hover:text-primary transition-colors" onClick={toggleMenu}>Services</a>
+          <a href="#portfolio" className="text-2xl font-gt hover:text-primary transition-colors" onClick={toggleMenu}>Portfolio</a>
+          <a href="#testimonials" className="text-2xl font-gt hover:text-primary transition-colors" onClick={toggleMenu}>Testimonials</a>
+          <a href="#blog" className="text-2xl font-gt hover:text-primary transition-colors" onClick={toggleMenu}>Blog</a>
           <a href="#contact" className="btn-primary w-full text-center" onClick={toggleMenu}>Contact Us</a>
         </div>
       </div>

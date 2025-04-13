@@ -4,41 +4,33 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Freight Display Pro';
-  src: url('/fonts/FreightDispProBook-Regular.woff2') format('woff2');
+  font-family: 'GT Super';
+  src: url('/fonts/GT-Super-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Freight Display Pro';
-  src: url('/fonts/FreightDispProBold-Regular.woff2') format('woff2');
+  font-family: 'GT Super';
+  src: url('/fonts/GT-Super-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'GT America';
-  src: url('/fonts/GT-America-Standard-Regular.woff2') format('woff2');
+  font-family: 'Actief Grotesque';
+  src: url('/fonts/Actief-Grotesque-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'GT America';
-  src: url('/fonts/GT-America-Standard-Bold.woff2') format('woff2');
+  font-family: 'Actief Grotesque';
+  src: url('/fonts/Actief-Grotesque-Bold.woff2') format('woff2');
   font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Monument Extended';
-  src: url('/fonts/MonumentExtended-Regular.woff2') format('woff2');
-  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -81,35 +73,35 @@
   }
 
   body {
-    @apply bg-premium-offwhite text-premium-charcoal font-gtamerica;
+    @apply bg-premium-offwhite text-premium-charcoal font-actief;
   }
 
-  h1, h2, h3, h4 {
-    @apply font-freight;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-gt;
   }
 
   .section-heading {
-    @apply text-4xl md:text-5xl font-freight font-bold mb-8 leading-tight;
+    @apply text-5xl md:text-7xl font-gt font-normal mb-12 leading-[1.1];
   }
 
   .section-subheading {
-    @apply text-xl font-gtamerica text-premium-gray mb-12 max-w-2xl mx-auto;
+    @apply text-xl md:text-2xl font-actief text-premium-gray mb-16 max-w-2xl mx-auto leading-relaxed;
   }
   
   .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full transition-all duration-300 font-gtamerica font-bold inline-flex items-center gap-2;
+    @apply bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full transition-all duration-300 font-actief font-bold inline-flex items-center gap-2 text-base tracking-wide;
   }
   
   .btn-accent {
-    @apply bg-accent hover:bg-accent-dark text-white px-8 py-3 rounded-full transition-all duration-300 font-gtamerica font-bold inline-flex items-center gap-2;
+    @apply bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full transition-all duration-300 font-actief font-bold inline-flex items-center gap-2 text-base tracking-wide;
   }
   
   .btn-outline {
-    @apply border-2 border-premium-charcoal text-premium-charcoal hover:bg-premium-charcoal hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-gtamerica font-bold inline-flex items-center gap-2;
+    @apply border-2 border-premium-charcoal text-premium-charcoal hover:bg-premium-charcoal hover:text-white px-8 py-4 rounded-full transition-all duration-300 font-actief font-bold inline-flex items-center gap-2 text-base tracking-wide;
   }
 
   .container-padding {
-    @apply px-6 md:px-12 lg:px-24;
+    @apply px-8 md:px-16 lg:px-24;
   }
 
   .split-background {
@@ -136,3 +128,4 @@
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 }
+

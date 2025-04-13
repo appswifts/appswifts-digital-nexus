@@ -65,22 +65,22 @@ const Portfolio: React.FC = () => {
     : projects.filter(project => project.category === filter);
 
   return (
-    <section id="portfolio" className="py-20 bg-premium-charcoal text-white container-padding">
+    <section id="portfolio" className="py-24 bg-premium-charcoal text-white container-padding">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 className="section-heading text-white">Our Portfolio</h2>
           <p className="section-subheading text-gray-300">
             Explore our collection of successful projects delivered to businesses across Rwanda and beyond.
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {categories.map(category => (
             <button
               key={category}
               onClick={() => setFilter(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-all duration-300",
+                "px-6 py-3 rounded-full transition-all duration-300 font-actief",
                 filter === category
                   ? "bg-primary text-white"
                   : "bg-premium-charcoal text-gray-300 border border-gray-700 hover:border-primary"
@@ -100,14 +100,14 @@ const Portfolio: React.FC = () => {
               <img 
                 src={project.imageUrl} 
                 alt={project.title} 
-                className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex flex-col justify-end">
-                <span className="text-primary text-sm font-bold uppercase tracking-wider">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-8 flex flex-col justify-end">
+                <span className="text-primary text-sm font-bold uppercase tracking-wider font-actief">
                   {project.category}
                 </span>
-                <h3 className="text-2xl font-freight font-bold mt-2">{project.title}</h3>
-                <p className="text-gray-300 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-3xl font-gt mt-2">{project.title}</h3>
+                <p className="text-gray-300 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-actief">
                   {project.description}
                 </p>
               </div>
@@ -115,7 +115,7 @@ const Portfolio: React.FC = () => {
           ))}
         </div>
         
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <a href="#contact" className="btn-primary">
             Start Your Project
           </a>

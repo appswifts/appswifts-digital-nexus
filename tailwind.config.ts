@@ -75,8 +75,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				freight: ["Freight Display Pro", "serif"],
-				gtamerica: ["GT America", "sans-serif"],
+				gt: ["GT Super", "serif"],
+				actief: ["Actief Grotesque", "sans-serif"],
 				monument: ["Monument Extended", "sans-serif"],
 			},
 			borderRadius: {
