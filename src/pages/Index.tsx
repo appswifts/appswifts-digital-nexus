@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Navbar from '@/components/Navbar';
+import { Navbar1 } from '@/components/ui/Navbar';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Portfolio from '@/components/Portfolio';
@@ -11,7 +11,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      <Navbar1 />
       <main>
         <Hero />
         <Services />
