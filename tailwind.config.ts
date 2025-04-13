@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -136,6 +135,9 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'zoom-in': 'zoom-in 0.5s ease-out',
 				'slide-in': 'slide-in 0.5s ease-out'
+			},
+			fontWeight: {
+				'gt-bold': '700'
 			}
 		}
 	},

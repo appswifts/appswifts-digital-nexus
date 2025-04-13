@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -77,11 +76,11 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-gt;
+    @apply font-gt font-bold;
   }
 
   .section-heading {
-    @apply text-5xl md:text-7xl font-gt font-normal mb-12 leading-[1.1];
+    @apply text-5xl md:text-7xl font-gt font-bold leading-[1.1];
   }
 
   .section-subheading {
