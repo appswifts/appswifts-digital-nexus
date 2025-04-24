@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 
@@ -10,7 +11,7 @@ const SupabaseConnectionTest = () => {
     const testConnection = async () => {
       try {
         // Get the Supabase URL from environment variable
-        const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'Not configured';
+        const url = import.meta.env.VITE_SUPABASE_URL || 'Not configured';
         setSupabaseUrl(url);
 
         // Test the connection by making a simple query

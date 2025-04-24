@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   UsersIcon, 
@@ -5,6 +6,7 @@ import {
   PhotoIcon, 
   CubeIcon 
 } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const stats = [
   { 
@@ -111,13 +113,13 @@ export default function DashboardStats() {
               </p>
               <div className="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-2">
                 <div className="text-sm">
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="font-medium text-primary hover:text-primary-dark"
                   >
                     View all
                     <span className="sr-only"> {item.name} stats</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </dd>

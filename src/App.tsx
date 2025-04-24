@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SiteProvider } from "@/context/SiteContext";
+import { AuthProvider } from "@/context/AuthContext";
 import Index from "./pages/Index";
 import AdminDashboard from "./pages/admin";
 import AdminLogin from "./pages/admin/login";
@@ -17,21 +18,23 @@ const App = () => {
   
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="/admin/login" element={<AdminLogin />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </SiteProvider>
+      <AuthProvider>
+        <SiteProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </BrowserRouter>
+          </TooltipProvider>
+        </SiteProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 };

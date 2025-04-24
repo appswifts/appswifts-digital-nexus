@@ -1,5 +1,6 @@
+
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { 
   PlusCircleIcon, 
   PencilSquareIcon, 
@@ -52,7 +53,7 @@ export default function QuickActions() {
           {actions.map((action) => (
             <Link
               key={action.title}
-              href={action.href}
+              to={action.href}
               className="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
             >
               <div className={`flex-shrink-0 h-10 w-10 rounded-full ${action.color} flex items-center justify-center`}>

@@ -1,11 +1,9 @@
-
 import React from 'react';
-import { AppProps } from 'next/app';
 import { SiteProvider } from '@/context/SiteContext';
 import { AuthProvider } from '@/context/AuthContext';
 import '@/styles/globals.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
       <Component {...pageProps} />
