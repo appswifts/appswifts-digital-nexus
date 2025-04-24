@@ -1,0 +1,43 @@
+/* Masonry grid styles */
+.my-masonry-grid {
+  display: flex;
+  margin-left: -16px; /* gutter size offset */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 16px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div {
+  margin-bottom: 16px;
+}
+
+/* Animation for cards */
+.my-masonry-grid_column > div {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation delay for cards */
+.my-masonry-grid_column:nth-child(1) > div { animation-delay: 0.1s; }
+.my-masonry-grid_column:nth-child(2) > div { animation-delay: 0.2s; }
+.my-masonry-grid_column:nth-child(3) > div { animation-delay: 0.3s; }
+
+.my-masonry-grid_column:nth-child(1) > div:nth-child(2) { animation-delay: 0.15s; }
+.my-masonry-grid_column:nth-child(2) > div:nth-child(2) { animation-delay: 0.25s; }
+.my-masonry-grid_column:nth-child(3) > div:nth-child(2) { animation-delay: 0.35s; }
+
+.my-masonry-grid_column:nth-child(1) > div:nth-child(3) { animation-delay: 0.2s; }
+.my-masonry-grid_column:nth-child(2) > div:nth-child(3) { animation-delay: 0.3s; }
+.my-masonry-grid_column:nth-child(3) > div:nth-child(3) { animation-delay: 0.4s; }

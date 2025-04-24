@@ -1,31 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Section } from '@/components/ui/Section';
-import { ProjectCard, ProjectCardProps } from '@/components/ui/ProjectCard';
+import { LensPortfolioCard, LensPortfolioCardProps } from '@/components/ui/LensPortfolioCard';
 import { FilterBar } from '@/components/ui/FilterBar';
-import { projects } from '@/data/projects';
-import Masonry from 'react-masonry-css';
+import { lensProjects } from '@/data/lens-projects';
 
-// Add CSS for Masonry layout
-import './masonry.css';
+// Add CSS for the grid layout
+import './portfolio-grid.css';
 
-export const Portfolio = () => {
-  const [filteredProjects, setFilteredProjects] = useState<ProjectCardProps[]>(projects);
+export const LensPortfolio = () => {
+  const [filteredProjects, setFilteredProjects] = useState<LensPortfolioCardProps[]>(lensProjects);
   const [filters, setFilters] = useState({
     search: '',
     country: '',
     category: '',
     year: '',
   });
+  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
 
-  // Breakpoints for the masonry layout
-  const breakpointColumnsObj = {
-    default: 3,
-    1100: 2,
-    700: 1
-  };
-
+  // Filter and sort projects
   useEffect(() => {
-    const filtered = projects.filter((project) => {
+    // First filter the projects
+    let filtered = lensProjects.filter((project) => {
       // Search filter (case insensitive)
       const searchMatch = !filters.search ||
         project.title.toLowerCase().includes(filters.search.toLowerCase()) ||
@@ -37,16 +32,25 @@ export const Portfolio = () => {
 
       // Category filter
       const categoryMatch = !filters.category ||
-        project.category.toLowerCase().replace(/\s+/g, '-') === filters.category.toLowerCase();
+        project.category.toLowerCase().replace(/\\s+/g, '-') === filters.category.toLowerCase();
 
       // Year filter
       const yearMatch = !filters.year || project.year === filters.year;
 
       return searchMatch && countryMatch && categoryMatch && yearMatch;
     });
+    
+    // Then sort the filtered projects
+    filtered = [...filtered].sort((a, b) => {
+      if (sortOrder === 'newest') {
+        return parseInt(b.year) - parseInt(a.year);
+      } else {
+        return parseInt(a.year) - parseInt(b.year);
+      }
+    });
 
     setFilteredProjects(filtered);
-  }, [filters]);
+  }, [filters, sortOrder]);
 
   const handleFilterChange = (newFilters: typeof filters) => {
     setFilters(newFilters);
@@ -66,6 +70,20 @@ export const Portfolio = () => {
         <p className="text-gray-600">
           Showing <span className="font-semibold text-primary">{filteredProjects.length}</span> of {lensProjects.length} projects
         </p>
+        <div className="flex gap-2">
+          <button 
+            className={`px-3 py-1 rounded border ${sortOrder === 'newest' ? 'bg-primary text-white border-primary' : 'border-gray-200 hover:bg-gray-50'} text-sm transition-colors`}
+            onClick={() => setSortOrder('newest')}
+          >
+            Newest First
+          </button>
+          <button 
+            className={`px-3 py-1 rounded border ${sortOrder === 'oldest' ? 'bg-primary text-white border-primary' : 'border-gray-200 hover:bg-gray-50'} text-sm transition-colors`}
+            onClick={() => setSortOrder('oldest')}
+          >
+            Oldest First
+          </button>
+        </div>
       </div>
 
       {filteredProjects.length === 0 ? (
@@ -86,4 +104,4 @@ export const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default LensPortfolio;

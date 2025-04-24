@@ -2,37 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'GT Super';
-  src: url('/fonts/GT-Super-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'GT Super';
-  src: url('/fonts/GT-Super-Bold.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Actief Grotesque';
-  src: url('/fonts/Actief-Grotesque-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Actief Grotesque';
-  src: url('/fonts/Actief-Grotesque-Bold.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
+/* Google Fonts are loaded in index.html */
 
 @layer base {
   :root {
@@ -72,29 +42,61 @@
   }
 
   body {
-    @apply bg-premium-offwhite text-premium-charcoal font-actief;
+    @apply bg-premium-offwhite text-premium-charcoal font-actief text-base leading-relaxed;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-gt font-bold;
+    @apply font-gt font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-[1.1];
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl leading-[1.1];
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl leading-tight;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl leading-snug;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl leading-snug;
+  }
+
+  h6 {
+    @apply text-base md:text-lg leading-snug font-semibold;
+  }
+
+  .section-title {
+    @apply text-sm uppercase tracking-widest text-gray-600 dark:text-gray-400 font-monument font-semibold mx-auto px-5 py-2 bg-gradient-to-tr from-zinc-300/20 via-gray-400/20 to-transparent dark:from-zinc-300/5 dark:via-gray-400/5 border-[2px] border-black/5 dark:border-white/5 rounded-3xl w-fit;
   }
 
   .section-heading {
-    @apply text-5xl md:text-7xl font-gt font-bold leading-[1.1];
+    @apply tracking-tight font-gt font-bold bg-clip-text text-transparent mx-auto bg-[linear-gradient(180deg,_#000_0%,_rgba(0,_0,_0,_0.75)_100%)] dark:bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)] leading-[1.1] mb-6;
+  }
+
+  .section-heading-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#89BF42] to-[#89BF42]/80 dark:from-[#89BF42] dark:to-[#89BF42]/80 font-bold;
   }
 
   .section-subheading {
-    @apply text-xl md:text-2xl font-actief text-premium-gray mb-16 max-w-2xl mx-auto leading-relaxed;
+    @apply max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg md:text-xl font-actief mb-16 leading-relaxed font-light;
   }
-  
+
   .btn-primary {
     @apply bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full transition-all duration-300 font-actief font-bold inline-flex items-center gap-2 text-base tracking-wide;
   }
-  
+
   .btn-accent {
     @apply bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-full transition-all duration-300 font-actief font-bold inline-flex items-center gap-2 text-base tracking-wide;
   }
-  
+
   .btn-outline {
     @apply border-2 border-premium-charcoal text-premium-charcoal hover:bg-premium-charcoal hover:text-white px-8 py-4 rounded-full transition-all duration-300 font-actief font-bold inline-flex items-center gap-2 text-base tracking-wide;
   }
@@ -120,7 +122,7 @@
   }
 
   .premium-card {
-    @apply bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl;
+    @apply bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl border border-gray-100;
   }
 
   .premium-hover {

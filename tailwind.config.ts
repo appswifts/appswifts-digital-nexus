@@ -74,9 +74,10 @@ export default {
 				}
 			},
 			fontFamily: {
-				gt: ["GT Super", "serif"],
-				actief: ["Actief Grotesque", "sans-serif"],
-				monument: ["Monument Extended", "sans-serif"],
+				gt: ["Bricolage Grotesque", "sans-serif"],
+				actief: ["Bricolage Grotesque", "sans-serif"],
+				monument: ["Bricolage Grotesque", "sans-serif"],
+				geist: ["Bricolage Grotesque", "sans-serif"],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -142,4 +143,4 @@ export default {
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};

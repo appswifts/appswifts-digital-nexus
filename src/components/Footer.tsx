@@ -1,6 +1,32 @@
 
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, ArrowUp } from 'lucide-react';
+import { FooterColumn } from '@/components/ui/FooterColumn';
+
+const services = [
+  { name: 'Website Development', href: '#' },
+  { name: 'Digital Marketing', href: '#' },
+  { name: 'Branding & Design', href: '#' },
+  { name: 'AI Solutions', href: '#' },
+  { name: 'Domain & Hosting', href: '#' },
+  { name: 'Software Marketplace', href: '#' },
+];
+
+const quickLinks = [
+  { name: 'About Us', href: '#' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'Testimonials', href: '#testimonials' },
+  { name: 'Blog', href: '#' },
+  { name: 'Careers', href: '#' },
+  { name: 'Contact Us', href: '#contact' },
+];
+
+const socialLinks = [
+  { icon: <Facebook size={20} />, href: '#' },
+  { icon: <Twitter size={20} />, href: '#' },
+  { icon: <Instagram size={20} />, href: '#' },
+  { icon: <Linkedin size={20} />, href: '#' },
+];
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -11,8 +37,8 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-premium-charcoal text-white pt-24 pb-12">
-      <div className="container mx-auto px-8 md:px-16">
+    <footer className="bg-premium-charcoal text-white pt-24 md:pt-32 pb-12 flex justify-center w-full">
+      <div className="container mx-auto px-8 md:px-16 w-full max-w-screen-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div>
             <a href="/" className="inline-block mb-8">
@@ -24,66 +50,62 @@ const Footer: React.FC = () => {
               Premium digital solutions for businesses in Rwanda and across East Africa. Innovation, quality, and results-driven strategies.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-premium-charcoal border border-gray-700 hover:bg-primary hover:border-primary p-2 rounded-full transition-colors duration-300">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="bg-premium-charcoal border border-gray-700 hover:bg-primary hover:border-primary p-2 rounded-full transition-colors duration-300">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="bg-premium-charcoal border border-gray-700 hover:bg-primary hover:border-primary p-2 rounded-full transition-colors duration-300">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="bg-premium-charcoal border border-gray-700 hover:bg-primary hover:border-primary p-2 rounded-full transition-colors duration-300">
-                <Linkedin size={20} />
-              </a>
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="bg-premium-charcoal border border-gray-700 hover:bg-primary hover:border-primary p-2 rounded-full transition-colors duration-300"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
-          
-          <div>
-            <h4 className="text-2xl font-gt mb-8">Services</h4>
+
+          <FooterColumn title="Services">
             <ul className="space-y-5 font-actief">
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Website Development</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Digital Marketing</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Branding & Design</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">AI Solutions</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Domain & Hosting</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Software Marketplace</a></li>
+              {services.map((service, index) => (
+                <li key={index}>
+                  <a href={service.href} className="text-gray-400 hover:text-primary transition-colors">
+                    {service.name}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-2xl font-gt mb-8">Quick Links</h4>
+          </FooterColumn>
+
+          <FooterColumn title="Quick Links">
             <ul className="space-y-5 font-actief">
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#portfolio" className="text-gray-400 hover:text-primary transition-colors">Portfolio</a></li>
-              <li><a href="#testimonials" className="text-gray-400 hover:text-primary transition-colors">Testimonials</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Blog</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Careers</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-primary transition-colors">Contact Us</a></li>
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <a href={link.href} className="text-gray-400 hover:text-primary transition-colors">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-2xl font-gt mb-8">Newsletter</h4>
+          </FooterColumn>
+
+          <FooterColumn title="Newsletter">
             <p className="text-gray-400 mb-6 font-actief">
               Subscribe to our newsletter to receive the latest updates and digital insights.
             </p>
             <form className="flex">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
+              <input
+                type="email"
+                placeholder="Your email address"
                 className="bg-premium-charcoal text-white px-4 py-3 rounded-l-lg border border-gray-700 focus:outline-none focus:border-primary w-full font-actief"
               />
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="bg-primary hover:bg-primary-dark text-white px-4 rounded-r-lg transition-colors duration-300"
               >
                 Subscribe
               </button>
             </form>
-          </div>
+          </FooterColumn>
         </div>
-        
+
         <div className="border-t border-gray-800 pt-10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0 font-actief">
             &copy; {new Date().getFullYear()} APPSWIFTS. All rights reserved.
@@ -91,7 +113,7 @@ const Footer: React.FC = () => {
           <div className="flex items-center space-x-8">
             <a href="#" className="text-gray-400 hover:text-primary transition-colors font-actief">Privacy Policy</a>
             <a href="#" className="text-gray-400 hover:text-primary transition-colors font-actief">Terms of Service</a>
-            <button 
+            <button
               onClick={scrollToTop}
               className="bg-premium-charcoal border border-gray-700 hover:bg-primary hover:border-primary p-3 rounded-full transition-colors duration-300"
               aria-label="Scroll to top"
