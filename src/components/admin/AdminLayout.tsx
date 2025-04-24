@@ -1,3 +1,4 @@
+
 import React, { useState, Fragment } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -41,11 +42,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     <div className="h-screen flex overflow-hidden bg-gray-100">
       {/* Mobile sidebar */}
       <Transition.Root show={sidebarOpen} as={Fragment}>
-        <Dialog
-          as="div"
-          className="fixed inset-0 flex z-40 md:hidden"
-          onClose={setSidebarOpen}
-        >
+        <Dialog as="div" className="fixed inset-0 flex z-40 md:hidden" onClose={setSidebarOpen}>
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
@@ -55,7 +52,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-600 bg-opacity-75" />
+            <div className="fixed inset-0 bg-gray-600 bg-opacity-75" />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
