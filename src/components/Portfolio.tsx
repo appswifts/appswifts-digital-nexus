@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Section } from '@/components/ui/Section';
 import { ProjectCard, ProjectCardProps } from '@/components/ui/ProjectCard';
@@ -64,7 +65,7 @@ export const Portfolio = () => {
 
       <div className="flex justify-between items-center mb-6">
         <p className="text-gray-600">
-          Showing <span className="font-semibold text-primary">{filteredProjects.length}</span> of {lensProjects.length} projects
+          Showing <span className="font-semibold text-primary">{filteredProjects.length}</span> of {projects.length} projects
         </p>
       </div>
 
@@ -77,7 +78,7 @@ export const Portfolio = () => {
         <div className="portfolio-grid">
           {filteredProjects.map((project) => (
             <div key={project.id} className="portfolio-item">
-              <LensPortfolioCard {...project} />
+              <ProjectCard {...project} />
             </div>
           ))}
         </div>

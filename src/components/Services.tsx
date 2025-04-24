@@ -3,6 +3,13 @@ import React from 'react';
 import { Section } from '@/components/ui/Section';
 import { SimpleCard } from '@/components/ui/SimpleCard';
 import { Code, Smartphone, Palette, BrainCircuit } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
 
 const services = [
   {
@@ -37,15 +44,33 @@ export const Services = () => {
       background="offwhite"
       className="mt-16"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {services.map((service, index) => (
-          <SimpleCard
-            key={index}
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-          />
-        ))}
+      <div className="w-full relative px-4 md:px-12">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+            skipSnaps: false,
+            slidesToScroll: 1,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {services.map((service, index) => (
+              <CarouselItem key={index} className="pl-4 md:basis-1/3 lg:basis-1/3">
+                <SimpleCard
+                  title={service.title}
+                  description={service.description}
+                  icon={service.icon}
+                  className="h-full"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="flex justify-end gap-2 mt-6">
+            <CarouselPrevious className="relative inset-auto h-10 w-10" />
+            <CarouselNext className="relative inset-auto h-10 w-10" />
+          </div>
+        </Carousel>
       </div>
     </Section>
   );
