@@ -1,7 +1,6 @@
 
 import React, { useState, Fragment } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
@@ -20,7 +19,7 @@ interface AdminLayoutProps {
 }
 
 const navigation = [
-  { name: 'Dashboard', href: '/admin/dashboard', icon: HomeIcon },
+  { name: 'Dashboard', href: '/admin', icon: HomeIcon },
   { name: 'Portfolio', href: '/admin/portfolio', icon: FolderIcon },
   { name: 'Services', href: '/admin/services', icon: InboxIcon },
   { name: 'Testimonials', href: '/admin/testimonials', icon: UsersIcon },
@@ -31,11 +30,12 @@ const navigation = [
 const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user, signOut } = useAuth();
-  const router = useRouter();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSignOut = async () => {
     await signOut();
-    router.push('/admin/login');
+    navigate('/admin/login');
   };
 
   return (
@@ -92,16 +92,16 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className={`${
-                        router.pathname === item.href
+                        location.pathname === item.href
                           ? 'bg-gray-100 text-primary'
                           : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                       } group flex items-center px-2 py-2 text-base font-medium rounded-md`}
                     >
                       <item.icon
                         className={`${
-                          router.pathname === item.href
+                          location.pathname === item.href
                             ? 'text-primary'
                             : 'text-gray-400 group-hover:text-gray-500'
                         } mr-4 flex-shrink-0 h-6 w-6`}
@@ -156,16 +156,16 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className={`${
-                      router.pathname === item.href
+                      location.pathname === item.href
                         ? 'bg-gray-100 text-primary'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                     } group flex items-center px-2 py-2 text-sm font-medium rounded-md`}
                   >
                     <item.icon
                       className={`${
-                        router.pathname === item.href
+                        location.pathname === item.href
                           ? 'text-primary'
                           : 'text-gray-400 group-hover:text-gray-500'
                       } mr-3 flex-shrink-0 h-6 w-6`}
